@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "name": "@vmeta3/fault-detector",
+  "version": "0.1.1",
+  "description": "[Vmeta3] Service for detecting faulty L2 output proposals",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "start": "ts-node ./src/service.ts",
+    "test:coverage": "echo 'No tests defined.'",
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist/ ./tsconfig.tsbuildinfo",
+    "lint": "yarn lint:fix && yarn lint:check",
+    "pre-commit": "lint-staged",
+    "lint:fix": "yarn lint:check --fix",
+    "lint:check": "eslint . --max-warnings=0"
+  },
+  "keywords": [
+    "vmeta3",
+    "ethereum",
+    "fault",
+    "detector"
+  ],
+  "homepage": "https://github.com/VMETA3/vmeta3-chain/tree/master/packages/fault-detector#readme",
+  "license": "MIT",
+  "author": "Vmeta3 Labs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VMETA3/vmeta3-chain.git"
+  },
+  "devDependencies": {
+    "@types/dateformat": "^5.0.0",
+    "dateformat": "^4.5.1",
+    "ethers": "^5.6.8",
+    "ts-node": "^10.7.0"
+  },
+  "dependencies": {
+    "@vmeta3/common-ts": "^0.2.8",
+    "@vmeta3/core-utils": "^1.0.2",
+    "@vmeta3/sdk": "^1.1.0",
+    "@ethersproject/abstract-provider": "^5.6.1"
+  }
+}

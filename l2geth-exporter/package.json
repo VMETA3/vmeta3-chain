@@ -1,0 +1,6 @@
+{
+  "name": "@vmeta3/l2geth-exporter",
+  "version": "0.0.6",
+  "private": true,
+  "devDependencies": {}
+}

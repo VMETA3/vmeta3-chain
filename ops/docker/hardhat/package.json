@@ -1,0 +1,11 @@
+{
+  "name": "@vmeta3/hardhat-node",
+  "version": "0.1.4",
+  "scripts": {
+    "start": "hardhat node --network hardhat"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "hardhat": "^2.9.6"
+  }
+}

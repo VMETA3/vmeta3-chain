@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "name": "@vmeta3/integration-tests-bedrock",
+  "version": "0.5.10",
+  "description": "[Vmeta3] Integration tests",
+  "scripts": {
+    "lint": "yarn lint:fix && yarn lint:check",
+    "lint:fix": "yarn lint:check --fix",
+    "lint:check": "eslint . --max-warnings=0",
+    "build:contracts": "forge build --root . -c contracts -o artifacts",
+    "test": "echo 'no unit tests'",
+    "test:actor": "IS_LIVE_NETWORK=true ts-node actor-tests/lib/runner.ts",
+    "test:integration:live": "NO_NETWORK=true IS_LIVE_NETWORK=true hardhat --network vmeta3 test",
+    "clean": "rimraf cache artifacts"
+  },
+  "keywords": [
+    "vmeta3",
+    "ethereum",
+    "integration",
+    "tests"
+  ],
+  "homepage": "https://github.com/VMETA3/vmeta3-chain/tree/master/packages/integration-tests#readme",
+  "license": "MIT",
+  "author": "Vmeta3 Labs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VMETA3/vmeta3-chain.git"
+  },
+  "devDependencies": {
+    "@vmeta3/contracts": "1.0.6",
+    "@vmeta3/core-utils": "1.0.2",
+    "@vmeta3/sdk": "^1.1.0",
+    "@ethersproject/abstract-provider": "^5.6.1",
+    "chai-as-promised": "^7.1.1",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "envalid": "^7.1.0",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.6.8",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0"
+  },
+  "dependencies": {
+    "rlp": "^3.0.0",
+    "winston": "^3.7.2"
+  }
+}

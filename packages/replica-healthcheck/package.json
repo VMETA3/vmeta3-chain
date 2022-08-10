@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "@vmeta3/replica-healthcheck",
+  "version": "1.0.8",
+  "description": "[Vmeta3] Service for monitoring the health of replica nodes",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "start": "ts-node ./src/service",
+    "test:coverage": "echo 'No tests defined.'",
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf ./dist ./tsconfig.tsbuildinfo",
+    "lint": "yarn run lint:fix && yarn run lint:check",
+    "pre-commit": "lint-staged",
+    "lint:fix": "yarn lint:check --fix",
+    "lint:check": "eslint . --max-warnings=0"
+  },
+  "keywords": [
+    "vmeta3",
+    "ethereum",
+    "replica",
+    "healthcheck"
+  ],
+  "homepage": "https://github.com/VMETA3/vmeta3-chain/tree/master/packages/replica-healthcheck#readme",
+  "license": "MIT",
+  "author": "Vmeta3 Labs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VMETA3/vmeta3-chain.git"
+  },
+  "dependencies": {
+    "@vmeta3/common-ts": "0.2.9",
+    "@vmeta3/core-utils": "1.0.2",
+    "@ethersproject/abstract-provider": "^5.6.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.0.0"
+  }
+}

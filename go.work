@@ -1,0 +1,18 @@
+go 1.18
+
+use (
+	./batch-submitter
+	./bss-core
+	./gas-oracle
+	./indexer
+	./l2geth
+	./l2geth-exporter
+	./op-batcher
+	./op-bindings
+	./op-e2e
+	./op-exporter
+	./op-node
+	./op-proposer
+	./proxyd
+	./teleportr
+)

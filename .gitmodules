@@ -1,0 +1,30 @@
+[submodule "batch-submitter"]
+	path = batch-submitter
+	url = https://github.com/VMETA3/vmeta3-batch-submitter
+[submodule "gas-oracle"]
+	path = gas-oracle
+	url = https://github.com/VMETA3/vmeta3-gas-oracle
+[submodule "indexer"]
+	path = indexer
+	url = https://github.com/VMETA3/vmeta3-indexer
+[submodule "l2geth"]
+	path = l2geth
+	url = https://github.com/VMETA3/vmeta3-l2geth
+[submodule "packages/common-ts"]
+	path = packages/common-ts
+	url = https://github.com/VMETA3/vmeta3-common
+[submodule "packages/message-relayer"]
+	path = packages/message-relayer
+	url = https://github.com/VMETA3/vmeta3-relayer
+[submodule "packages/sdk"]
+	path = packages/sdk
+	url = https://github.com/VMETA3/vmeta3-sdk
+[submodule "packages/contracts"]
+	path = packages/contracts
+	url = https://github.com/VMETA3/vmeta3-contracts
+[submodule "packages/data-transport-layer"]
+	path = packages/data-transport-layer
+	url = https://github.com/VMETA3/vmeta3-data-transport-layer
+[submodule "packages/core-utils"]
+	path = packages/core-utils
+	url = https://github.com/VMETA3/vmeta3-core-utils
