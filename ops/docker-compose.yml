@@ -73,7 +73,7 @@ services:
       - deployer
     build:
       context: ..
-      dockerfile: ./l2geth/Dockerfile
+      dockerfile: ./ops/docker/l2geth/Dockerfile
     image: vmeta3/l2geth:${DOCKER_TAG_L2GETH:-latest}
     # override with the geth script and the env vars required for it
     entrypoint: sh ./geth.sh
@@ -144,7 +144,7 @@ services:
       replicas: 1
     build:
       context: ..
-      dockerfile: ./l2geth/Dockerfile
+      dockerfile: ./ops/docker/l2geth/Dockerfile
     image: vmeta3/l2geth:${DOCKER_TAG_L2GETH:-latest}
     entrypoint: sh ./geth.sh
     env_file:
@@ -171,7 +171,7 @@ services:
       replicas: 1
     build:
       context: ..
-      dockerfile: ./l2geth/Dockerfile
+      dockerfile: ./ops/docker/l2geth/Dockerfile
     image: vmeta3/l2geth:${DOCKER_TAG_L2GETH:-latest}
     entrypoint: sh ./geth.sh
     env_file:
