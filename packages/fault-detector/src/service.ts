@@ -1,4 +1,4 @@
-import { BaseServiceV2, Gauge, validators } from '@vmeta3/common-ts'
+import { BaseServiceV2, Gauge, validators } from '@vmeta3/common'
 import { sleep, toRpcHexString } from '@vmeta3/core-utils'
 import { CrossChainMessenger } from '@vmeta3/sdk'
 import { Provider } from '@ethersproject/abstract-provider'

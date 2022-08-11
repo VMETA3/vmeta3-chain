@@ -4,7 +4,7 @@ import {
   Counter,
   Gauge,
   validators,
-} from '@vmeta3/common-ts'
+} from '@vmeta3/common'
 import { sleep } from '@vmeta3/core-utils'
 
 type HealthcheckOptions = {
