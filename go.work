@@ -10,7 +10,6 @@ use (
 	./op-batcher
 	./op-bindings
 	./op-e2e
-	./op-exporter
 	./op-node
 	./op-proposer
 	./proxyd

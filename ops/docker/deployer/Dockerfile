@@ -3,7 +3,7 @@
 #
 # ### BASE: Install deps
 FROM ghcr.io/foundry-rs/foundry:latest as foundry
-FROM node:16-alpine3.14 as base
+FROM node:14.18.1-alpine3.14 as base
 
 RUN apk --no-cache add curl jq python3 ca-certificates git make gcc musl-dev linux-headers bash build-base
 
@@ -19,49 +19,11 @@ COPY --from=foundry /usr/local/bin/cast /usr/local/bin/cast
 # note: this approach can be a bit unhandy to maintain, but it allows
 # us to cache the installation steps
 WORKDIR /opt/vmeta3
-COPY *.json ./
 COPY ./packages ./packages
-COPY ./integration-tests ./integration-tests
-
 RUN rm -rf packages/*/.git
-RUN npm install -g typescript
 
 FROM base as deployer
 WORKDIR /opt/vmeta3/packages/contracts
 RUN yarn && yarn build
 COPY ./ops/scripts/deployer.sh .
 CMD ["yarn", "run", "deploy"]
-
-
-FROM base as data-transport-layer
-WORKDIR /opt/vmeta3/packages/data-transport-layer
-RUN yarn && yarn build
-COPY ./ops/scripts/dtl.sh .
-CMD ["node", "dist/src/services/run.js"]
-
-
-FROM base as integration-tests
-WORKDIR /opt/vmeta3/integration-tests
-RUN yarn && yarn build
-COPY ./ops/scripts/integration-tests.sh ./
-CMD ["yarn", "test:integration"]
-
-
-FROM base as message-relayer
-WORKDIR /opt/vmeta3/packages/message-relayer
-RUN yarn && yarn build
-COPY ./ops/scripts/relayer.sh .
-CMD ["npm", "run", "start"]
-
-
-FROM base as fault-detector
-WORKDIR /opt/vmeta3/packages/fault-detector
-RUN yarn && yarn build
-COPY ./ops/scripts/detector.sh .
-CMD ["npm", "run", "start"]
-
-
-FROM base as replica-healthcheck
-WORKDIR /opt/vmeta3/packages/replica-healthcheck
-RUN yarn && yarn build
-ENTRYPOINT ["npm", "run", "start"]
