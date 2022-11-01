@@ -27,7 +27,7 @@ services:
       - l1_chain
     build:
       context: ..
-      dockerfile: ./ops/docker/Dockerfile.packages
+      dockerfile: ./ops/docker/deployer/Dockerfile
       target: deployer
     image: vmeta3/deployer:${DOCKER_TAG_DEPLOYER:-latest}
     entrypoint: ./deployer.sh
@@ -47,7 +47,7 @@ services:
       - l2geth
     build:
       context: ..
-      dockerfile: ./ops/docker/Dockerfile.packages
+      dockerfile: ./ops/docker/dtl/Dockerfile
       target: data-transport-layer
     image: vmeta3/data-transport-layer:${DOCKER_TAG_DATA_TRANSPORT_LAYER:-latest}
     # override with the dtl script and the env vars required for it
@@ -107,7 +107,7 @@ services:
       replicas: 0
     build:
       context: ..
-      dockerfile: ./ops/docker/Dockerfile.packages
+      dockerfile: ./ops/docker/relayer/Dockerfile
       target: message-relayer
     image: vmeta3/message-relayer:${DOCKER_TAG_MESSAGE_RELAYER:-latest}
     entrypoint: ./relayer.sh
