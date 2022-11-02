@@ -17,9 +17,11 @@ COPY --from=foundry /usr/local/bin/cast /usr/local/bin/cast
 WORKDIR /opt/vmeta3
 COPY ./packages ./packages
 RUN rm -rf packages/*/.git
+RUN npm install -g typescript
 
 FROM base as message-relayer
 WORKDIR /opt/vmeta3/packages/message-relayer
 RUN yarn && yarn build
+RUN yarn add typescript
 COPY ./ops/scripts/relayer.sh .
 CMD ["npm", "run", "start"]
